@@ -1,0 +1,22 @@
+{
+  "name": "week6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eelise0/Week6-DevTools.git"
+  },
+  "author": "Elise Schmidt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eelise0/Week6-DevTools/issues"
+  },
+  "homepage": "https://github.com/Eelise0/Week6-DevTools#readme",
+  "dependencies": {
+    "chai": "^4.3.6"
+  }
+}

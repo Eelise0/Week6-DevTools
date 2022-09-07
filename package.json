@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Eelise0/Week6-DevTools#readme",
   "dependencies": {
-    "chai": "^4.3.6"
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
   }
 }

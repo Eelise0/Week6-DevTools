@@ -131,45 +131,45 @@ if (totalForPlayerOne > totalForPlayerTwo) {
 
 // if (playerOneIndex[i] === 'King' && playerTwoIndex[i] <= 10)  {
 //     playerOnePoints.push(1);
-//     alert `1 point for Player One!`;
+//     
 
 // } else if (playerOneIndex[i] === 'Queen' && playerTwoIndex[i] <= 10) {
 //     playerOnePoints.push(1);
-//     alert `1 point for Player One!`;
+//     
 
 // } else if (playerOneIndex[i] === 'Ace' && playerTwoIndex[i] <= 10) {
 //     playerOnePoints.push(1);
-//     alert `1 point for Player One!`;
+//    
 
 // } else if (playerOneIndex[i] === 'Jack' && playerTwoIndex[i] <= 10) {
 //     playerOnePoints.push(1);
-//     alert `1 point for Player One!`;
+//     
 
 // } else if (playerTwoIndex[i] === 'King' && playerOneIndex[i] <= 10) {
 //     playerTwoPoints.push(1);
-//     alert `1 point for Player Two!`;
+//     
 
 // } else if (playerTwoIndex[i] === 'Queen' && playerOneIndex[i] <= 10) {
 //     playerTwoPoints.push(1);
-//     alert `1 point for Player Two!`;
+//     
 
 // } else if (playerTwoIndex[i] === 'Ace' && playerOneIndex[i] <= 10) {
 //     playerTwoPoints.push(1);
-//     alert `1 point for Player Two!`;
+//     
 
 // } else if (playerTwoIndex[i] === 'Jack' && playerOneIndex[i] <= 10) {
 //     playerTwoPoints.push(1);
-//     alert `1 point for Player Two!`;
+//    
 
 // } else if (playerOneIndex[i] > playerTwoIndex[i]) {
 //     playerOnePoints.push(1);
-//     alert `1 point for Player One!`;
+//   
 
 // } else if (playerTwoIndex[i] > playerOneIndex[i]) {
 //     playerTwoPoints.push(1);
-//     alert `1 point for Player Two!`;
+//    
 
 // } else
-//     alert `No points for anyone!`
+//   
 
 

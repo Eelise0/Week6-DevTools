@@ -7,29 +7,15 @@ You won't see much on the screen but rest
 assured the game is happening! To see all the action, 
 check out the Console. Good Luck!`
 
-// class Card {
-//     constructor() {
-//         this.name = name;
-//         this.value = value;
-//     }
-// }
-//  class Deck {
-//     constructor() {
-//         this.card = card;
-//         this.deal = deal;
-//         this.shuffle = shuffle;
-//     }
-//  }
+
 class Player {
-    constructor(name, deck, hi) {
+    constructor(name, deck) {
     this.name = name;
     this.deck = deck;
     this.totalPoints = 0;
-    this.bye = hi;
 }
 }
-const weirdPlayer = new Player('str', [], false);
-console.log(weirdPlayer.bye);
+
 /************************ SHUFFLE **********************/
 
 function shuffle(array) {
@@ -50,87 +36,94 @@ function shuffle(array) {
   }
   
   // Used like so
-  
-  var mainDeck = ['k', 'k', 'k', 'k', 'q', 'q', 'q', 'q', 'j', 'j', 'j', 'j', 10, 10, 10, 10, 9, 9, 9, 9, 8, 8, 8, 8, 7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 'a', 'a', 'a', 'a'];
-  shuffle(mainDeck);
-  console.log(mainDeck);
   const cardValueMap = {
     j: 11,
     q: 12,
     k: 13,
-    a: 1
+    a: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10
   }
+  
+  var mainDeck = ['k', 'k', 'k', 'k', 'q', 'q', 'q', 'q', 'j', 'j', 'j', 'j', 10, 10, 10, 10, 9, 9, 9, 9, 8, 8, 8, 8, 7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 'a', 'a', 'a', 'a'];
+  console.log('New Deck of Cards: ' + mainDeck);
+  console.log('---------------------------------------------------');
+  
+  shuffle(mainDeck);
+  console.log('Shuffled Deck of Cards: ' + mainDeck);
+  console.log('---------------------------------------------------');
 
 /********************* DEALING ****************************/
 
-var playerOneDeck = [];
-var playerTwoDeck = [];
+const player1 = new Player('Player 1', []);
+player1.deck = mainDeck.slice(0, 26);
+console.log('Player One Deck: ' + player1.deck);
 
-
-playerOneDeck = mainDeck.slice(0, 26);
-console.log('Player One Deck: ' + playerOneDeck);
-const player1 = new Player('bob', playerOneDeck);
-
-playerTwoDeck = mainDeck.slice(26, 52);
-console.log('Player Two Deck: ' + playerTwoDeck);
-const player2 = new Player('bob', playerTwoDeck);
+const player2 = new Player('Player 2', []);
+player2.deck = mainDeck.slice(26, 52);
+console.log('Player Two Deck: ' + player2.deck);
+console.log('---------------------------------------------------');
 
 
 /********************* COMPARING THE CARDS ********************/
 
-var playerOneIndex = 0;
-var playerTwoIndex = 0;
-let playerOnePoints = [];
-let playerTwoPoints = [];
+playerOneCard = 0;
+playerTwoCard = 0;
+player1.score = 0;
+player2.score = 0;
 
-{for (let i = 0; i < playerOneDeck.length; i++) {
+{for (let i = 0; i < player1.deck.length; i++) {
 
-    playerOneIndex = playerOneDeck[i]; // player1.deck[i]
-    console.log('1: ' + playerOneIndex);
+    playerOneCard = player1.deck[i]; // player1.deck[i]
+    console.log('1: ' + playerOneCard);
 
-   playerTwoIndex = playerTwoDeck[i];
-   console.log('2: ' + playerTwoIndex);
+   playerTwoCard = player2.deck[i];
+   console.log('2: ' + playerTwoCard);
 
-if (playerOneIndex > playerTwoIndex) { // if (cardValueMap[playerOneIndex] || playerOneIndex > cardValueMap[playerTwoIndex] || playerTwoIndex )
-    playerOnePoints.push(1); // player1.score++;
-} else if (playerTwoIndex > playerOneIndex) {
-    playerTwoPoints.push(1);
-} else {
+if (cardValueMap[playerOneCard] > cardValueMap[playerTwoCard]) {
+    player1.score++;
 
-}
+} else if (cardValueMap[playerTwoCard] > cardValueMap[playerOneCard]) {
+    player2.score++;
+
+} else { }
+
 
 console.log('Player 1 Points: ' + player1.score);
-console.log('Player 2 Points: ' + playerTwoPoints);
-
-}}
+console.log('Player 2 Points: ' + player2.score);
+console.log('---------------------------------------------------');
+}
 
 /*********** TOTAL POINTS FOR EACH PLAYER ***************/
 
-let totalForPlayerOne = 0;
- for (let i = 0; i < playerOnePoints.length; i++) {
-    totalForPlayerOne += playerOnePoints[i];
- }
-console.log('Total for Player One: ' + totalForPlayerOne); //player1.score
+console.log('Total for Player One: ' + player1.score); //player1.score
 
- let totalForPlayerTwo = 0;
- for (let i = 0; i < playerTwoPoints.length; i++) {
-    totalForPlayerTwo += playerTwoPoints[i];
- }
-console.log('Total for Player Two: ' + totalForPlayerTwo);
+console.log('Total for Player Two: ' + player2.score);
 
 /********** DECLARATION OF WINNER ********************/
 
-if (totalForPlayerOne > totalForPlayerTwo) {
+if (player1.score > player2.score) {
     alert (
     `---- Wow! Great job, Player 1! ----
-    You have won the game with ${totalForPlayerOne} points! 
-    Player 2, you only had ${totalForPlayerTwo}. Better luck next time!`);
+    You have won the game with ${player1.score} points! 
+    Player 2, you only had ${player2.score}. 
+    Better luck next time!`);
 
-} else if (totalForPlayerTwo > totalForPlayerOne) {
+} else if (player2.score > player1.score) {
     alert (
     `---- Wow! Great job, Player 2! ----
-    You have won the game with ${totalForPlayerTwo} points! 
-    Player 1, you only had ${totalForPlayerOne} points. 
+    You have won the game with ${player2.score} points! 
+    Player 1, you only had ${player1.score} points. 
     Better luck next time!`);
 } else 
-    alert ('Looks like there was a tie! What are the chances of that?! Better luck next time!');
+    alert (
+        `Looks like there was a tie! What are the chances of that?! 
+            Better luck next time!`);
+}

@@ -1,26 +1,4 @@
 
-// class Player {
-//     constructor(name) {
-//         this.name = name;
-//         this.hand = hand;
-//         this.score = [];
-//     }
-// }
-
-// class Card {
-//     constructor(name) {
-//         this.name = name;
-//         this.value = value;
-//     }
-// }
-
-// class Deck {
-//     constructor() {
-//         this.playersDeck = playersDeck;
-//         this.shuffle = shuffle;
-//     }
-// }
-
 alert `----- Let's play War! ----
 There are two players and the player with 
 the highest value card at draw wins the point.
@@ -32,8 +10,8 @@ check out the Console. Good Luck!`
 
 /************************ SHUFFLE **********************/
 
-function shuffle(deck) {
-    let currentIndex = deck.length,  randomIndex;
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
   
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
@@ -43,16 +21,15 @@ function shuffle(deck) {
       currentIndex--;
   
       // And swap it with the current element.
-      [deck[currentIndex], deck[randomIndex]] = [
-        deck[randomIndex], deck[currentIndex]];
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
   
-    return deck;
+    return array;
   }
   
   // Used like so
   
-  var mainDeck = [14, 14, 14, 14, 13, 13, 13, 13, 12, 12, 12, 12, 11, 11, 11, 11, 10, 10, 10, 10, 9, 9, 9, 9, 8, 8, 8, 8, 7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2];
+  var mainDeck = [13, 13, 13, 13, 12, 12, 12, 12, 11, 11, 11, 11, 10, 10, 10, 10, 9, 9, 9, 9, 8, 8, 8, 8, 7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1];
   shuffle(mainDeck);
   console.log(mainDeck);
 
@@ -97,6 +74,8 @@ console.log('Player 2 Points: ' + playerTwoPoints);
 
 }}
 
+/*********** TOTAL POINTS FOR EACH PLAYER ***************/
+
 let totalForPlayerOne = 0;
  for (let i = 0; i < playerOnePoints.length; i++) {
     totalForPlayerOne += playerOnePoints[i];
@@ -109,67 +88,19 @@ console.log('Total for Player One: ' + totalForPlayerOne);
  }
 console.log('Total for Player Two: ' + totalForPlayerTwo);
 
+/********** DECLARATION OF WINNER ********************/
+
 if (totalForPlayerOne > totalForPlayerTwo) {
-    alert ('Wow! Great job, Player 1! You have won the game with ' 
-    + totalForPlayerOne + ' points! Player 2, you only had ' + totalForPlayerTwo + '. Better luck next time!');
+    alert (
+    `---- Wow! Great job, Player 1! ----
+    You have won the game with ${totalForPlayerOne} points! 
+    Player 2, you only had ${totalForPlayerTwo}. Better luck next time!`);
+
+} else if (totalForPlayerTwo > totalForPlayerOne) {
+    alert (
+    `---- Wow! Great job, Player 2! ----
+    You have won the game with ${totalForPlayerTwo} points! 
+    Player 1, you only had ${totalForPlayerOne} points. 
+    Better luck next time!`);
 } else 
-    alert ('Wow! Great job, Player 2! You have won the game with ' 
-    + totalForPlayerTwo + ' points! Player 2, you only had ' + totalForPlayerOne + ' points. Better luck next time!');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (playerOneIndex[i] === 'King' && playerTwoIndex[i] <= 10)  {
-//     playerOnePoints.push(1);
-//     
-
-// } else if (playerOneIndex[i] === 'Queen' && playerTwoIndex[i] <= 10) {
-//     playerOnePoints.push(1);
-//     
-
-// } else if (playerOneIndex[i] === 'Ace' && playerTwoIndex[i] <= 10) {
-//     playerOnePoints.push(1);
-//    
-
-// } else if (playerOneIndex[i] === 'Jack' && playerTwoIndex[i] <= 10) {
-//     playerOnePoints.push(1);
-//     
-
-// } else if (playerTwoIndex[i] === 'King' && playerOneIndex[i] <= 10) {
-//     playerTwoPoints.push(1);
-//     
-
-// } else if (playerTwoIndex[i] === 'Queen' && playerOneIndex[i] <= 10) {
-//     playerTwoPoints.push(1);
-//     
-
-// } else if (playerTwoIndex[i] === 'Ace' && playerOneIndex[i] <= 10) {
-//     playerTwoPoints.push(1);
-//     
-
-// } else if (playerTwoIndex[i] === 'Jack' && playerOneIndex[i] <= 10) {
-//     playerTwoPoints.push(1);
-//    
-
-// } else if (playerOneIndex[i] > playerTwoIndex[i]) {
-//     playerOnePoints.push(1);
-//   
-
-// } else if (playerTwoIndex[i] > playerOneIndex[i]) {
-//     playerTwoPoints.push(1);
-//    
-
-// } else
-//   
-
-
+    alert ('Looks like there was a tie! What are the chances of that?! Better luck next time!');
